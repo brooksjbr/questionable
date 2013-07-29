@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  mount Askaquestion::Engine => "/askaquestion"
+  mount Questionable::Engine => "/askaquestion"
 end

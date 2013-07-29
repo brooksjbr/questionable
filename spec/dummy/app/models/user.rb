@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :questions, class_name: "Askaquestion::Question"
-  has_many :answers, class_name: "Askaquestion::Answer"
-  has_many :votes, class_name: "Askaquestion::Vote"
+  has_many :questions, class_name: "Questionable::Question"
+  has_many :answers, class_name: "Questionable::Answer"
+  has_many :votes, class_name: "Questionable::Vote"
   
-  include ExtendAskaquestion
+  include ExtendQuestionable
 end

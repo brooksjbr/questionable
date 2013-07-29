@@ -61,9 +61,9 @@ Spork.each_run do
 end
 
 ## Create Routes for spec tests
-module Askaquestion
+module Questionable
   class Engine < ::Rails::Engine
-    isolate_namespace Askaquestion
+    isolate_namespace Questionable
   end
 
   Engine.routes.draw do
