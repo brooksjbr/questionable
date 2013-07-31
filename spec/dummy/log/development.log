@@ -1,0 +1,239 @@
+
+
+Started GET "/askquestion/questions" for 127.0.0.1 at 2013-07-31 11:28:22 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.0) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.0) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__2474034749258658414__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/rhuberdeau/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/rhuberdeau/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/rhuberdeau/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/rhuberdeau/.rvm/gems/ruby-1.9.3-p194@rails4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.9ms)
+  Rendered /Users/rhuberdeau/.rvm/gems/ruby-1.9.3-p194@rails4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/rhuberdeau/.rvm/gems/ruby-1.9.3-p194@rails4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /Users/rhuberdeau/.rvm/gems/ruby-1.9.3-p194@rails4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (26.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20130711201228)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "alias" varchar(255), "buddy_image_url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  insert into users (alias, buddy_image_url) values ("testuser1", "http://cdn.test.com/buddy_icon.jpg")
+  [1m[36m (0.1ms)[0m  [1minsert into users (alias, buddy_image_url) values ("testuser2", "http://cdn.test.com/buddy_icon.jpg")[0m
+  [1m[35m (0.1ms)[0m  insert into users (alias, buddy_image_url) values ("testuser3", "http://cdn.test.com/buddy_icon.jpg")
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20130711201228"]]
+  [1m[35m (2.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/questionable/questions" for 127.0.0.1 at 2013-07-31 11:42:44 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Questionable::QuestionsController#index as HTML
+  [1m[35mQuestionable::Question Load (0.2ms)[0m  SELECT "questions".* FROM "questions"
+  Rendered /Users/rhuberdeau/Sites/questionable/app/views/questionable/questions/index.html.erb (6.1ms)
+Completed 200 OK in 30ms (Views: 18.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/questionable/questions/new" for 127.0.0.1 at 2013-07-31 11:42:47 -0400
+Processing by Questionable::QuestionsController#new as HTML
+  Rendered /Users/rhuberdeau/Sites/questionable/app/views/questionable/questions/_form.html.erb (128.4ms)
+  Rendered /Users/rhuberdeau/Sites/questionable/app/views/questionable/questions/new.html.erb (141.3ms)
+Completed 200 OK in 146ms (Views: 144.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/questionable/questions/new" for 127.0.0.1 at 2013-07-31 12:50:33 -0400
+Processing by Questionable::QuestionsController#new as HTML
+  Rendered /Users/rhuberdeau/Sites/questionable/app/views/questionable/questions/_form.html.erb (4.0ms)
+  Rendered /Users/rhuberdeau/Sites/questionable/app/views/questionable/questions/new.html.erb (6.7ms)
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/questionable/questions" for 127.0.0.1 at 2013-07-31 12:50:41 -0400
+Processing by Questionable::QuestionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3K3uGPpUfQ0yqVqLTgqrj103vRPfpfiknJlqlmjhCD4=", "question"=>{"title"=>"does this work?", "content"=>"test test tset", "user_id"=>"1234"}, "commit"=>"Create Question"}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mQuestionable::Question Load (0.4ms)[0m  
+ select count(unique_id) as count_unique_id, NULL as count_unique_id_N from questions where unique_id = 'does-this-work' 
+ UNION 
+ select NULL as count_unique_id, count(unique_id) as count_unique_id_N from questions where unique_id like 'does-this-work-%' ;
+  [1m[36mSQL (7.1ms)[0m  [1mINSERT INTO "questions" ("content", "created_at", "title", "unique_id", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?, ?)[0m  [["content", "test test tset"], ["created_at", Wed, 31 Jul 2013 16:50:41 UTC +00:00], ["title", "does this work?"], ["unique_id", "does-this-work"], ["updated_at", Wed, 31 Jul 2013 16:50:41 UTC +00:00], ["user_id", 1234]]
+  [1m[35m (2.4ms)[0m  commit transaction
+Redirected to http://localhost:3000/questionable/questions/does-this-work
+Completed 302 Found in 69ms (ActiveRecord: 10.1ms)
+
+
+Started GET "/questionable/questions/does-this-work" for 127.0.0.1 at 2013-07-31 12:50:41 -0400
+Processing by Questionable::QuestionsController#show as HTML
+  Parameters: {"id"=>"does-this-work"}
+  [1m[36mQuestionable::Question Load (0.4ms)[0m  [1mSELECT "questions".* FROM "questions" WHERE "questions"."unique_id" = 'does-this-work' LIMIT 1[0m
+  Rendered /Users/rhuberdeau/Sites/questionable/app/views/questionable/questions/show.html.erb (101.8ms)
+Completed 500 Internal Server Error in 111ms
+
+ActionView::Template::Error (Could not find table 'answers'):
+    12: <%= link_to 'Edit', edit_question_path(@question) %> |
+    13: <%= link_to 'Back', questions_path %>
+    14: 
+    15: <% @question.answers.each do |answer| %>
+    16: 	<p><%= link_to answer.content, question_answer_path(:question_id => @question.unique_id, :id => answer.unique_id) %></p>
+    17: <% end %>
+  activerecord (4.0.0) lib/active_record/connection_adapters/sqlite3_adapter.rb:509:in `table_structure'
+  activerecord (4.0.0) lib/active_record/connection_adapters/sqlite3_adapter.rb:396:in `columns'
+  activerecord (4.0.0) lib/active_record/connection_adapters/schema_cache.rb:114:in `block in prepare_default_proc'
+  activerecord (4.0.0) lib/active_record/connection_adapters/schema_cache.rb:56:in `yield'
+  activerecord (4.0.0) lib/active_record/connection_adapters/schema_cache.rb:56:in `default'
+  activerecord (4.0.0) lib/active_record/connection_adapters/schema_cache.rb:56:in `columns'
+  activerecord (4.0.0) lib/active_record/connection_adapters/schema_cache.rb:118:in `block in prepare_default_proc'
+  activerecord (4.0.0) lib/active_record/connection_adapters/schema_cache.rb:67:in `yield'
+  activerecord (4.0.0) lib/active_record/connection_adapters/schema_cache.rb:67:in `default'
+  activerecord (4.0.0) lib/active_record/connection_adapters/schema_cache.rb:67:in `columns_hash'
+  activerecord (4.0.0) lib/active_record/associations/association_scope.rb:25:in `column_for'
+  activerecord (4.0.0) lib/active_record/associations/association_scope.rb:37:in `bind'
+  activerecord (4.0.0) lib/active_record/associations/association_scope.rb:73:in `block in add_constraints'
+  activerecord (4.0.0) lib/active_record/associations/association_scope.rb:44:in `each'
+  activerecord (4.0.0) lib/active_record/associations/association_scope.rb:44:in `each_with_index'
+  activerecord (4.0.0) lib/active_record/associations/association_scope.rb:44:in `add_constraints'
+  activerecord (4.0.0) lib/active_record/associations/association_scope.rb:19:in `scope'
+  activerecord (4.0.0) lib/active_record/associations/association.rb:100:in `association_scope'
+  activerecord (4.0.0) lib/active_record/associations/association.rb:84:in `scope'
+  activerecord (4.0.0) lib/active_record/associations/collection_association.rb:382:in `scope'
+  activerecord (4.0.0) lib/active_record/associations/collection_proxy.rb:37:in `initialize'
+  activerecord (4.0.0) lib/active_record/relation/delegation.rb:78:in `new'
+  activerecord (4.0.0) lib/active_record/associations/collection_association.rb:37:in `reader'
+  activerecord (4.0.0) lib/active_record/associations/builder/association.rb:70:in `answers'
+  /Users/rhuberdeau/Sites/questionable/app/views/questionable/questions/show.html.erb:15:in `___sers_rhuberdeau__ites_questionable_app_views_questionable_questions_show_html_erb__565903591910152129_2161661620'
+  actionpack (4.0.0) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.0) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.0) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.0) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.0) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/rhuberdeau/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/benchmark.rb:295:in `realtime'
+  activesupport (4.0.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:383:in `_run__3709266359770877773__process_action__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.0) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.0) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.0) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.0) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.0) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/railtie/configurable.rb:30:in `method_missing'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.0) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.0) lib/action_dispatch/routing/route_set.rb:655:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.0) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:373:in `_run__782160902694078869__call__callbacks'
+  activesupport (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `block in call'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.0) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.0) lib/rails/rack/logger.rb:21:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.0) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.0) lib/action_dispatch/middleware/static.rb:64:in `call'
+  railties (4.0.0) lib/rails/engine.rb:511:in `call'
+  railties (4.0.0) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/rhuberdeau/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /Users/rhuberdeau/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /Users/rhuberdeau/.rvm/rubies/ruby-1.9.3-p194/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /Users/rhuberdeau/.rvm/gems/ruby-1.9.3-p194@rails4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+  Rendered /Users/rhuberdeau/.rvm/gems/ruby-1.9.3-p194@rails4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+  Rendered /Users/rhuberdeau/.rvm/gems/ruby-1.9.3-p194@rails4/gems/actionpack-4.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (20.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m

@@ -13,22 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130711201228) do
 
-  create_table "answers", force: true do |t|
-    t.integer  "question_id",     null: false
-    t.text     "content",         null: false
-    t.string   "unique_id",       null: false
-    t.integer  "user_id",         null: false
-    t.string   "buddy_image_url"
-    t.string   "alias"
-    t.integer  "votes_count"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "answers", ["question_id"], name: "index_answers_on_question_id"
-  add_index "answers", ["unique_id"], name: "index_answers_on_unique_id"
-  add_index "answers", ["user_id"], name: "index_answers_on_user_id"
-
   create_table "questions", force: true do |t|
     t.string   "title",           null: false
     t.text     "content",         null: false
@@ -51,15 +35,5 @@ ActiveRecord::Schema.define(version: 20130711201228) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "votes", force: true do |t|
-    t.integer  "user_id",       null: false
-    t.integer  "voteable_id",   null: false
-    t.string   "voteable_type", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "votes", ["voteable_id", "user_id"], name: "index_votes_on_voteable_id_and_user_id"
 
 end
