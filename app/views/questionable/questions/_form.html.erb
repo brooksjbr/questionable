@@ -19,7 +19,7 @@
     <%= f.label :content %><br>
     <%= f.text_field :content %>
   </div>
-	<%= f.hidden_field :user_id, :value => "1234" %>
+	<%= f.hidden_field :user_id, :value => @user.id %>
   <div class="actions">
     <%= f.submit %>
   </div>

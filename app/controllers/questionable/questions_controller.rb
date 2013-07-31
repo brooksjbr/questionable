@@ -18,6 +18,7 @@ module Questionable
     # GET /questions/new
     def new
       @question = Question.new
+      @user = User.first
     end
 
     # GET /questions/1/edit
