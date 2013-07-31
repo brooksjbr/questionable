@@ -1,39 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Index:</strong>
-  <%= @question.index %>
+  <strong>Title</strong>
+  <%= @question.title %>
 </p>
 
 <p>
-  <strong>New:</strong>
-  <%= @question.new %>
+  <strong>Content</strong>
+  <%= @question.content %>
 </p>
-
-<p>
-  <strong>Create:</strong>
-  <%= @question.create %>
-</p>
-
-<p>
-  <strong>Edit:</strong>
-  <%= @question.edit %>
-</p>
-
-<p>
-  <strong>Update:</strong>
-  <%= @question.update %>
-</p>
-
-<p>
-  <strong>Show:</strong>
-  <%= @question.show %>
-</p>
-
-<p>
-  <strong>Destroy:</strong>
-  <%= @question.destroy %>
-</p>
-
+<%= link_to 'Reply', new_question_answer_path(@question)%> |
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>
+
+<% @question.answers.each do |answer| %>
+	<p><%= link_to answer.content, question_answer_path(:question_id => @question.unique_id, :id => answer.unique_id) %></p>
+<% end %>
