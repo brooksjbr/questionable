@@ -1,12 +1,11 @@
-require_dependency "questionable/application_controller"
-
 module Questionable
   class AnswersController < ApplicationController
-    before_action :set_answer, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+    before_action :set_answers, only: [:index, :show]
+    before_action :set_answer, only: [:update, :destroy]
+    before_action :create_answer, only: [:new, :create]
 
     # GET /answers
     def index
-      @answers = Questionable::Answer.all
     end
 
     # GET /answers/1
@@ -41,7 +40,7 @@ module Questionable
     def update
       respond_to do |format|
         if @answer.update(answer_params)
-          format.html { redirect_to question_path(@question), notice: 'Answer was successfully updated.' }
+          format.html { redirect_to question_path(@answer.question), notice: 'Answer was successfully updated.' }
           format.json { head :no_content }
         else
           format.html { render action: 'edit' }
@@ -54,16 +53,24 @@ module Questionable
     def destroy
       @answer.destroy
       respond_to do |format|
-        format.html { redirect_to question_path(@question) }
+        format.html { redirect_to question_path(@answer.question) }
         format.json { head :no_content }
       end
     end
 
     private
       # Use callbacks to share common setup or constraints between actions.
+      def set_answers
+        @question = Questionable::Question.joins(:answers).where(unique_id: params[:question_id])
+        @answers = @question.nil? ? nil : @question.first.answers
+      end
+      
       def set_answer
+        @answer = Questionable::Answer.find(params[:id])
+      end
+      
+      def create_answer
         @question = Questionable::Question.find(params[:question_id])
-        @answer = Questionable::Answer.find(params[:id]) if params.has_key?("id") and !@question.nil?
       end
 
       # Only allow a trusted parameter "white list" through.

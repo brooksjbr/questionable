@@ -35,5 +35,13 @@ module ExtendQuestionable
     belongs_to :user
   end
   
-  
+  # NOTE: Don't know how user auth will fit into questionable gem so spoofing user for test.
+  Questionable::QuestionsController.class_eval do
+    before_action :spoof_user, only: :new
+
+    def spoof_user
+      @user = User.first
+    end
+  end
+    
 end
