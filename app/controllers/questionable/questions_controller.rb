@@ -1,9 +1,10 @@
-require_dependency "questionable/application_controller"
+# NOTE: Require engine application controller to load instead of Parent like this....
+#require_dependency "questionable/application_controller"
 
 module Questionable
   class QuestionsController < ApplicationController
     before_action :set_question, only: [:show, :edit, :update, :destroy]
-
+    
     # GET /questions
     # GET /questions.json
     def index
@@ -18,7 +19,6 @@ module Questionable
     # GET /questions/new
     def new
       @question = Question.new
-      @user = User.first
     end
 
     # GET /questions/1/edit
@@ -43,7 +43,7 @@ module Questionable
 
     # PATCH/PUT /questions/1
     # PATCH/PUT /questions/1.json
-    def update
+    def update      
       respond_to do |format|
         if @question.update(question_params)
           format.html { redirect_to @question, notice: 'Question was successfully updated.' }
@@ -73,7 +73,7 @@ module Questionable
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def question_params
-        params.require(:question).permit(:title, :content, :user_id)
+        params.require(:question).permit(:id, :title, :content, :user_id)
       end
   end
 end

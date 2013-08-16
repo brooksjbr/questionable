@@ -17,19 +17,25 @@ describe Questionable::VotesController do
     @user3 = User.find_by alias: "testuser3"
     post :create, :vote => {voteable_id: @question.id, voteable_type: @question.class.to_s, user_id: @user3.id}, :format => :json
     expect(response.status).to eq(200)
-    expect(@question.votes.size).to eq(1)
+
+    @question.reload
+    expect(@question.votes_count).to eq(1)
   end
   
   it "delete votes#destroy" do
     @user3 = User.find_by alias: "testuser3"
     post :create, :vote => {voteable_id: @question.id, voteable_type: @question.class.to_s, user_id: @user3.id}, :format => :json
     expect(response.status).to eq(200)
-    expect(@question.votes.size).to eq(1)
     
+    @question.reload
+    expect(@question.votes_count).to eq(1)
+
     vote = Questionable::Vote.find_by voteable_id: @question.id, user_id: @user3.id
     delete :destroy, id: vote.id,  :format => :json
     expect(response.status).to eq(200)
-    expect(@question.votes.size).to eq(0)
+    
+    @question.reload
+    expect(@question.votes_count).to eq(0)
   end
   
 end

@@ -13,7 +13,6 @@ module Questionable
     
     belongs_to :voteable, 
                :polymorphic => true, 
-               dependent: :destroy, 
                counter_cache: true
 
     validates :voteable_id, 

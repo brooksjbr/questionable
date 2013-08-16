@@ -4,8 +4,8 @@ module Questionable
     
     include UniqueIdFinder
 
-    belongs_to :question, dependent: :destroy, counter_cache: true
-    has_many :votes, :as => :voteable
+    belongs_to :question, counter_cache: true
+    has_many :votes, dependent: :destroy, :as => :voteable
 
     validates :question_id, :content, :user_id, presence: true
 
