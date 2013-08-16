@@ -61,8 +61,8 @@ module Questionable
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_answers
-        @question = Questionable::Question.joins(:answers).where(unique_id: params[:question_id])
-        @answers = @question.nil? ? nil : @question.first.answers
+        @question = (Questionable::Question.where(unique_id: params[:question_id]).includes(:answers)).first
+        @answers = @question.answers
       end
       
       def set_answer
