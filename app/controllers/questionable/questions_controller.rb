@@ -33,7 +33,7 @@ module Questionable
       respond_to do |format|
         if @question.save
           format.html { redirect_to @question, notice: 'Question was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @question }
+          format.json { render json: @question }
         else
           format.html { render action: 'new' }
           format.json { render json: @question.errors, status: :unprocessable_entity }

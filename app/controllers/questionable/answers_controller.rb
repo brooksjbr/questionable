@@ -28,7 +28,7 @@ module Questionable
       respond_to do |format|
         if @answer.save
           format.html { redirect_to @question, notice: 'Answer was successfully created.' }
-          format.json { render action: 'show', status: :created, location: @answer }
+          format.json { render json: @answer }
         else
           format.html { render action: 'new' }
           format.json { render json: @answer.errors, status: :unprocessable_entity }
@@ -75,7 +75,7 @@ module Questionable
 
       # Only allow a trusted parameter "white list" through.
       def answer_params
-        params.require(:answer).permit(:question_id, :content, :unique_id, :user_id, :buddy_image_url, :alias, :votes_count)
+        params.require(:answer).permit(:question_id, :content, :user_id)
       end
   end
 end
