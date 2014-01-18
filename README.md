@@ -14,7 +14,7 @@ gem 'questionable', git: "git://github.com/brooksjbr/questionable"
 and bundle:
 
 ```shell
-bundle
+$ bundle
 ```
 
 #### Post Installation
