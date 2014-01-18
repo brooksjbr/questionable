@@ -5,7 +5,6 @@ module Questionable
     include UniqueIdFinder
 
     has_many :answers, dependent: :destroy
-    has_many :votes, dependent: :destroy, :as => :voteable
 
     validates :title, :content, :user_id, presence: true
 
