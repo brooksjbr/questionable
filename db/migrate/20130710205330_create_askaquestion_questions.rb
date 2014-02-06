@@ -7,8 +7,7 @@ class CreateAskaquestionQuestions < ActiveRecord::Migration
       t.integer :user_id, :null => false
       t.string :buddy_image_url
       t.string :alias
-      t.integer :answers_count, default: 0 
-      t.integer :votes_count, default: 0
+      t.integer :answers_count, default: 0
 
       t.timestamps
     end
