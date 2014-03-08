@@ -75,7 +75,7 @@ module Questionable
 
       # Only allow a trusted parameter "white list" through.
       def answer_params
-        params.require(:answer).permit(:question_id, :content, :user_id)
+        params.require(:answer).permit(:content, :user_id)
       end
   end
 end

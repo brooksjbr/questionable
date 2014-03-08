@@ -8,7 +8,7 @@ module Questionable
     # GET /questions
     # GET /questions.json
     def index
-      @questions = Question.all
+      @questions = Question.order(answers_count: :desc)
     end
 
     # GET /questions/1
@@ -73,7 +73,7 @@ module Questionable
 
       # Never trust parameters from the scary internet, only allow the white list through.
       def question_params
-        params.require(:question).permit(:id, :title, :content, :user_id)
+        params.require(:question).permit(:title, :content, :user_id)
       end
   end
 end
