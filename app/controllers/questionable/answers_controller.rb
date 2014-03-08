@@ -23,7 +23,7 @@ module Questionable
 
     # POST /answers
     def create
-      @answer = Questionable::Answer.new(answer_params)
+      @answer = Questionable::Answer.new(answer_params.merge(question_id: @question.id))
 
       respond_to do |format|
         if @answer.save
@@ -41,7 +41,7 @@ module Questionable
       respond_to do |format|
         if @answer.update(answer_params)
           format.html { redirect_to question_path(@answer.question), notice: 'Answer was successfully updated.' }
-          format.json { head :no_content }
+          format.json { render json: @answer }
         else
           format.html { render action: 'edit' }
           format.json { render json: @answer.errors, status: :unprocessable_entity }
@@ -62,7 +62,6 @@ module Questionable
       # Use callbacks to share common setup or constraints between actions.
       def set_answers
         @question = (Questionable::Question.where(unique_id: params[:question_id]).includes(:answers)).first
-        @answers = @question.respond_to?(:answers) ? @question.answers : false
       end
       
       def set_answer
