@@ -23,7 +23,7 @@ module Questionable
 
     # POST /answers
     def create
-      @answer = Questionable::Answer.new(answer_params.merge(question_id: @question.id))
+      @answer = Questionable::Answer.new(answer_params)
 
       respond_to do |format|
         if @answer.save
@@ -74,7 +74,7 @@ module Questionable
 
       # Only allow a trusted parameter "white list" through.
       def answer_params
-        params.require(:answer).permit(:content, :user_id)
+        params.require(:answer).permit(:question_id, :content, :user_id)
       end
   end
 end
