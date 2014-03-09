@@ -47,7 +47,7 @@ module Questionable
       respond_to do |format|
         if @question.update(question_params)
           format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-          format.json { head :no_content }
+          format.json { render json: @question }
         else
           format.html { render action: 'edit' }
           format.json { render json: @question.errors, status: :unprocessable_entity }
